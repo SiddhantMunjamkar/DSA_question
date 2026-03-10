@@ -8,6 +8,9 @@ struct Node
     Node(int val) : data(val), next(nullptr) {}
 };
 
+
+
+
 void insertEnd(Node *&head, int val)
 {
     Node *newNode = new Node(val);
