@@ -8,10 +8,6 @@ struct Node
     Node(int val) : data(val), next(nullptr) {}
 };
 
-
-
-
-
 void insertEnd(Node *&head, int val)
 {
     Node *newNode = new Node(val);
@@ -22,7 +18,9 @@ void insertEnd(Node *&head, int val)
     }
     Node *temp = head;
     while (temp->next)
+    {
         temp = temp->next;
+    }
     temp->next = newNode;
 }
 
