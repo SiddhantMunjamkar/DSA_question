@@ -181,6 +181,10 @@ Node *insertBeforeKthElement(Node *head, int val, int k)
         }
         temp = temp->next;
     }
+    if (temp == nullptr)
+    {
+        return head;
+    }
     Node *prev = temp->back;
     Node *newNode = new Node(val, temp, prev);
     prev->next = newNode;
