@@ -25,6 +25,9 @@ public:
     }
 };
 
+// Forward declaration
+Node *insertNode(Node *head, int val);
+
 Node *convertArrToDLL(vector<int> &arr)
 {
     Node *head = new Node(arr[0]);
@@ -134,6 +137,57 @@ void DeleteNode(Node *temp)
     free(temp);
 }
 
+Node *insertBeforetail(Node *head, int val)
+{
+    if (head->next == nullptr)
+    {
+        return insertNode(head, val);
+    }
+
+    Node *tail = head;
+    while (tail->next != nullptr)
+    {
+        tail = tail->next;
+    }
+    Node *prev = tail->back;
+
+    Node *newNode = new Node(val, tail, prev);
+    prev->next = newNode;
+    tail->back = newNode;
+    return head;
+}
+
+Node *insertNode(Node *head, int val)
+{
+    Node *newHead = new Node(val, head, nullptr);
+    head->back = newHead;
+    return newHead;
+}
+
+Node *insertBeforeKthElement(Node *head, int val, int k)
+{
+    if (k == 1)
+    {
+        return insertNode(head, val);
+    }
+    int count = 0;
+    Node *temp = head;
+    while (temp)
+    {
+        count++;
+        if (count == k)
+        {
+            break;
+        }
+        temp = temp->next;
+    }
+    Node *prev = temp->back;
+    Node *newNode = new Node(val, temp, prev);
+    prev->next = newNode;
+    temp->back = newNode;
+    return head;
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5};
@@ -141,7 +195,8 @@ int main()
     // head = DeleteHead(head);
     // head = DeleteTail(head);
     // head = DeleteKthNode(head, 4);
-    DeleteHead(head->next);
+    // DeleteHead(head->next);
+    head = insertBeforeKthElement(head, 10, 3);
     print(head);
     return 0;
 }
