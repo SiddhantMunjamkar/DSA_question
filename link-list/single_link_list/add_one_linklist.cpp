@@ -58,7 +58,7 @@ int main()
 {
     Solution sol;
 
-    vector<int> v = {9,9};
+    vector<int> v = {9, 9};
     ListNode *head = new ListNode(v[0]);
     ListNode *perv = head;
     for (int i = 1; i < v.size(); i++)
@@ -73,7 +73,13 @@ int main()
     {
         cout << head->val << " ";
         head = head->next;
+     
     }
+       cout << endl;
+
+    int a = 17;
+    cout << a / 10 << endl;
+    cout << a % 10 << endl;
 
     return 0;
 }
