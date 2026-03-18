@@ -12,7 +12,7 @@ public:
 class Solution
 {
 public:
-    Node *DeleteAllOccrence(Node *head, int val)
+    void *DeleteAllOccrence(Node *head, int val)
     {
         if (head == nullptr || head->next == nullptr)
         {
@@ -28,6 +28,44 @@ public:
                 head->back = nullptr;
             }
             delete del;
+        }
+
+        Node *temp = head;
+        Node *front = temp ? temp->next : nullptr;
+        Node *perv = nullptr;
+        while (temp != nullptr)
+        {
+            if (temp->val == val && temp->next != nullptr)
+            {
+                if (perv != nullptr)
+                {
+                    perv->next = temp->next;
+                }
+                temp->next->back = perv;
+                Node *del = temp;
+                temp = temp->next;
+                del->next = nullptr;
+                delete del;
+            }
+            else if (temp->val == val && temp->next == nullptr)
+            {
+                if (perv != nullptr)
+                {
+                    perv->next = nullptr;
+                }
+                perv->next = nullptr;
+                delete temp;
+                break;
+            }
+            else
+            {
+                perv = temp;
+                temp = front;
+                if (front != nullptr)
+                {
+                    front = front->next;
+                }
+            }
         }
     }
 };
