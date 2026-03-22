@@ -20,6 +20,8 @@ public:
         {
             generate(n, curr + '1', ans);
         }
+
+        
           // always try adding 0
         generate(n, curr + '0', ans);
     }
