@@ -4,9 +4,7 @@ using namespace std;
 class Solution
 {
 public:
-    void targetcombinationsum(vector<int> candidates, int target,
-                              vector<vector<int>> &ans, vector<int> curr,
-                              int index)
+    void targetcombinationsum(vector<int> candidates, int target, vector<vector<int>> &ans, vector<int> curr, int index)
     {
         if (target == 0)
         {
@@ -47,4 +45,3 @@ int main()
     }
     return 0;
 }
-
