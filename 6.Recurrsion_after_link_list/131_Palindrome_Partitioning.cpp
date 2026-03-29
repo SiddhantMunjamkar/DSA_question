@@ -42,10 +42,11 @@ public:
     }
 };
 
+
 int main()
 {
     Solution obj;
-    string s = "aab";
+    string s = "ab";
     vector<vector<string>> ans = obj.partition(s);
     for (auto i : ans)
     {
