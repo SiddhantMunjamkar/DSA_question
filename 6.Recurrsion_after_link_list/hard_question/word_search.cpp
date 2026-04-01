@@ -10,6 +10,8 @@ public:
         {
             return true;
         }
+
+        
         if (i < 0 || j < 0 || i >= board.size() || j >= board[0].size() || board[i][j] != word[index])
         {
             return false;
