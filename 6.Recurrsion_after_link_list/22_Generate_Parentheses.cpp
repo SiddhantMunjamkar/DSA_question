@@ -13,6 +13,7 @@ public:
         }
         if (open < n)
         
+        
         {
             generatePar(n, open + 1, close, curr + "(", result);
         }
