@@ -10,12 +10,13 @@ public:
         while (x != 0)
         {
             int digit = x % 10;
-            ans = ans * 10 + digit;
+          
 
             if (ans > INT_MAX / 10 || ans < INT_MIN / 10)
             {
                 return 0;
             }
+              ans = ans * 10 + digit;
             x /= 10;
         }
         return ans;
@@ -24,6 +25,9 @@ public:
 
 int main()
 {
+    Solution *obj = new Solution();
+    int x = 123;
+    cout << obj->reverse(x) << endl;
 
     return 0;
 }
